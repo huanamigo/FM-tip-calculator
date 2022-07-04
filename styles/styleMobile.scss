@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+$VeryDarkCyan: hsl(183, 100%, 15%);
+$DarkGrayishCyan: hsl(186, 14%, 43%);
+$GrayishCyan: hsl(184, 14%, 56%);
+$LightGrayishCyan: hsl(185, 41%, 84%);
+$VeryLightGrayishCyan: hsl(189, 41%, 97%);
+$White: hsl(0, 0%, 100%);
+$StrongCyan: hsl(172, 67%, 45%);
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $LightGrayishCyan;
+  font-family: "Space Mono", monospace;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100vw;
+}
+
+input {
+  font-family: "Space Mono", monospace;
+}
+
+section {
+  margin-bottom: 35px;
+}
+
+.headline {
+  text-align: center;
+  color: $VeryDarkCyan;
+  letter-spacing: 10px;
+}
+
+.main {
+  width: 100%;
+  background-color: $White;
+  padding: 30px 20px;
+  height: 90vh;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+#bill-amount {
+  width: 100%;
+  background-image: url(/images/icon-dollar.svg);
+  background-repeat: no-repeat;
+  background-position: 10px;
+  background-size: 15px;
+  text-align: right;
+  padding-right: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.tip-perc {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.radio-label {
+  text-align: center;
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $VeryDarkCyan;
+  font-size: 1.5rem;
+  color: $White;
+  font-weight: 700;
+  transition: all 0.4s ease;
+  border: none;
+  border-radius: 7px;
+  height: 3rem;
+
+  &:hover {
+    background-color: rgba(38, 192, 171, 0.5);
+    color: $VeryDarkCyan;
+  }
+}
+
+input[type="radio"]:checked + .radio-label {
+  background-color: $StrongCyan;
+  color: $VeryDarkCyan;
+}
+
+#six {
+  text-align: center;
+}
+
+.text-input {
+  height: 3rem;
+  background-color: $VeryLightGrayishCyan;
+  color: $VeryDarkCyan;
+  font-size: 1.5rem;
+  overflow: hidden;
+  font-weight: 700;
+  border: none;
+  border-radius: 7px;
+
+  &:focus {
+    outline: 2px solid $StrongCyan;
+  }
+
+  &::placeholder {
+    color: $DarkGrayishCyan;
+  }
+}
+
+#ppl-num {
+  text-align: right;
+  width: 100%;
+  padding-right: 20px;
+  background-image: url(/images/icon-person.svg);
+  background-repeat: no-repeat;
+  background-position: 10px;
+  background-size: 15px;
+}
+
+.result {
+  padding: 20px;
+  font-weight: 700;
+  border: none;
+  border-radius: 20px;
+  display: grid;
+  background-color: $VeryDarkCyan;
+  color: white;
+
+  .grid-top {
+    grid-area: top;
+  }
+
+  .grid-bottom {
+    grid-area: bottom;
+  }
+
+  grid-template-areas:
+    "top"
+    "bottom";
+
+  .reset-button {
+    display: flex;
+    align-items: center;
+    background-color: rgba(38, 192, 171, 0.5);
+    color: $VeryDarkCyan;
+  }
+}
+
+.grid-right {
+  font-size: 2rem;
+  text-align: right;
+}
+
+.grid-top {
+  display: grid;
+  height: 70px;
+
+  .tip-amount-text {
+    margin: 0;
+    padding: 0;
+    grid-area: tipamounttext;
+    align-self: end;
+  }
+
+  .tip-amount {
+    grid-area: tipamount;
+    color: $StrongCyan;
+  }
+
+  .per-person1 {
+    grid-area: perperson1;
+    align-self: start;
+    margin: 0;
+    padding: 0;
+    color: $GrayishCyan;
+  }
+
+  grid-template-areas:
+    "tipamounttext tipamount"
+    "perperson1 tipamount";
+}
+
+.grid-bottom {
+  display: grid;
+
+  .total-amount-text {
+    grid-area: totalamounttext;
+    align-self: end;
+    margin: 0;
+    padding: 0;
+  }
+
+  .total-amount {
+    grid-area: totalamount;
+    color: $StrongCyan;
+  }
+
+  .per-person2 {
+    grid-area: perperson2;
+    align-self: start;
+    margin: 0;
+    padding: 0;
+    color: $GrayishCyan;
+  }
+
+  grid-template-areas:
+    "totalamounttext totalamount"
+    "perperson2 totalamount";
+}
