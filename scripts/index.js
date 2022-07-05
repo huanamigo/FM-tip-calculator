@@ -4,10 +4,20 @@ const pplNum = document.querySelector("#ppl-num");
 const tipAmount = document.querySelector(".tip-amount");
 const totalAmount = document.querySelector(".total-amount");
 const customTip = document.querySelector("#six");
+const resetBtn = document.querySelector(".reset-button");
+const tipPercBtn = document.querySelectorAll(".radio-label");
 let tipPercentage = 0;
 
+tipPercBtn.forEach((x) => (x.onclick = resetCustomTip));
 tipPerc.forEach((x) => (x.oninput = tipPercCheck));
-customTip.addEventListener("input", tipPercCheck);
+billAmount.addEventListener("input", calcTip);
+tipPerc.forEach((x) => (x.onchange = calcTip));
+pplNum.addEventListener("input", calcTip);
+resetBtn.addEventListener("click", resetForm);
+
+function resetCustomTip() {
+  customTip.value = "";
+}
 
 function tipPercCheck() {
   if (customTip.value == "") {
@@ -17,6 +27,7 @@ function tipPercCheck() {
       }
     }
   } else {
+    tipPercentage = 0;
     for (el in tipPerc) {
       tipPerc[el].checked = false;
     }
@@ -24,14 +35,21 @@ function tipPercCheck() {
   }
 }
 
-function calcTip() {
-  billWithTip =
-    Number(billAmount.value) +
-    Number((tipPercentage * billAmount.value) / pplNum.value);
-  totalAmount.innerHTML = "$" + billWithTip;
-  tipAmount.innerHTML = Number((billWithTip - billAmount) / pplNum.value);
+function resetForm() {
+  for (el in tipPerc) {
+    tipPerc[el].checked = false;
+  }
+  tipPercentage = 0;
+  billAmount.value = "";
+  pplNum.value = 1;
+  tipAmount.innerHTML = totalAmount.innerHTML = "$0.00";
+  customTip.value = "";
 }
 
-billAmount.addEventListener("input", calcTip);
-tipPerc.forEach((x) => (x.onchange = calcTip));
-pplNum.addEventListener("input", calcTip);
+function calcTip() {
+  billWithTip =
+    Number(billAmount.value) + Number(tipPercentage * billAmount.value);
+  totalAmount.innerHTML = "$" + Number(billWithTip / pplNum.value).toFixed(2);
+  tipAmount.innerHTML =
+    "$" + Number((billWithTip - billAmount.value) / pplNum.value).toFixed(2);
+}

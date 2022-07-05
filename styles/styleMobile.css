@@ -10,10 +10,12 @@ body {
   font-family: "Space Mono", monospace;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
-  width: 100vw;
+  width: min(100vw, 400px);
 }
 
 input {
@@ -34,7 +36,6 @@ section {
   width: 100%;
   background-color: hsl(0deg, 0%, 100%);
   padding: 30px 20px;
-  height: 90vh;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
@@ -49,14 +50,14 @@ section {
   padding-right: 20px;
 }
 
-.hidden {
-  display: none;
-}
-
 .tip-perc {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+}
+
+.hidden {
+  display: none;
 }
 
 .radio-label {
@@ -133,63 +134,69 @@ input[type=radio]:checked + .radio-label {
 }
 .result .grid-top {
   grid-area: top;
-}
-.result .grid-bottom {
-  grid-area: bottom;
-}
-.result .reset-button {
-  display: flex;
-  align-items: center;
-  background-color: rgba(38, 192, 171, 0.5);
-  color: hsl(183deg, 100%, 15%);
-}
-
-.grid-right {
-  font-size: 2rem;
-  text-align: right;
-}
-
-.grid-top {
   display: grid;
   height: 70px;
   grid-template-areas: "tipamounttext tipamount" "perperson1 tipamount";
 }
-.grid-top .tip-amount-text {
+.result .grid-top .tip-amount-text {
   margin: 0;
   padding: 0;
   grid-area: tipamounttext;
   align-self: end;
 }
-.grid-top .tip-amount {
+.result .grid-top .tip-amount {
   grid-area: tipamount;
   color: hsl(172deg, 67%, 45%);
 }
-.grid-top .per-person1 {
+.result .grid-top .per-person1 {
   grid-area: perperson1;
   align-self: start;
   margin: 0;
   padding: 0;
   color: hsl(184deg, 14%, 56%);
 }
-
-.grid-bottom {
+.result .grid-bottom {
+  grid-area: bottom;
   display: grid;
   grid-template-areas: "totalamounttext totalamount" "perperson2 totalamount";
 }
-.grid-bottom .total-amount-text {
+.result .grid-bottom .total-amount-text {
   grid-area: totalamounttext;
   align-self: end;
   margin: 0;
   padding: 0;
 }
-.grid-bottom .total-amount {
+.result .grid-bottom .total-amount {
   grid-area: totalamount;
   color: hsl(172deg, 67%, 45%);
 }
-.grid-bottom .per-person2 {
+.result .grid-bottom .per-person2 {
   grid-area: perperson2;
   align-self: start;
   margin: 0;
   padding: 0;
   color: hsl(184deg, 14%, 56%);
+}
+.result .reset-button {
+  display: flex;
+  align-items: center;
+  background-color: hsl(172deg, 67%, 45%);
+  color: hsl(183deg, 100%, 15%);
+}
+.result .reset-button:hover {
+  background-color: hsl(185deg, 41%, 84%);
+}
+.result .grid-right {
+  font-size: 2rem;
+  text-align: right;
+}
+
+.attribution {
+  background-color: hsl(0deg, 0%, 100%);
+  text-align: center;
+}
+.attribution a {
+  text-decoration: none;
+  color: hsl(172deg, 67%, 45%);
+  cursor: pointer;
 }/*# sourceMappingURL=styleMobile.css.map */

@@ -19,10 +19,12 @@ body {
   font-family: "Space Mono", monospace;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
-  width: 100vw;
+  width: min(100vw, 400px);
 }
 
 input {
@@ -43,7 +45,6 @@ section {
   width: 100%;
   background-color: $White;
   padding: 30px 20px;
-  height: 90vh;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
@@ -58,14 +59,14 @@ section {
   padding-right: 20px;
 }
 
-.hidden {
-  display: none;
-}
-
 .tip-perc {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+}
+
+.hidden {
+  display: none;
 }
 
 .radio-label {
@@ -138,10 +139,61 @@ input[type="radio"]:checked + .radio-label {
 
   .grid-top {
     grid-area: top;
+    display: grid;
+    height: 70px;
+
+    .tip-amount-text {
+      margin: 0;
+      padding: 0;
+      grid-area: tipamounttext;
+      align-self: end;
+    }
+
+    .tip-amount {
+      grid-area: tipamount;
+      color: $StrongCyan;
+    }
+
+    .per-person1 {
+      grid-area: perperson1;
+      align-self: start;
+      margin: 0;
+      padding: 0;
+      color: $GrayishCyan;
+    }
+
+    grid-template-areas:
+      "tipamounttext tipamount"
+      "perperson1 tipamount";
   }
 
   .grid-bottom {
     grid-area: bottom;
+    display: grid;
+
+    .total-amount-text {
+      grid-area: totalamounttext;
+      align-self: end;
+      margin: 0;
+      padding: 0;
+    }
+
+    .total-amount {
+      grid-area: totalamount;
+      color: $StrongCyan;
+    }
+
+    .per-person2 {
+      grid-area: perperson2;
+      align-self: start;
+      margin: 0;
+      padding: 0;
+      color: $GrayishCyan;
+    }
+
+    grid-template-areas:
+      "totalamounttext totalamount"
+      "perperson2 totalamount";
   }
 
   grid-template-areas:
@@ -151,69 +203,27 @@ input[type="radio"]:checked + .radio-label {
   .reset-button {
     display: flex;
     align-items: center;
-    background-color: rgba(38, 192, 171, 0.5);
+    background-color: $StrongCyan;
     color: $VeryDarkCyan;
+
+    &:hover {
+      background-color: $LightGrayishCyan;
+    }
+  }
+
+  .grid-right {
+    font-size: 2rem;
+    text-align: right;
   }
 }
 
-.grid-right {
-  font-size: 2rem;
-  text-align: right;
-}
+.attribution {
+  background-color: $White;
+  text-align: center;
 
-.grid-top {
-  display: grid;
-  height: 70px;
-
-  .tip-amount-text {
-    margin: 0;
-    padding: 0;
-    grid-area: tipamounttext;
-    align-self: end;
-  }
-
-  .tip-amount {
-    grid-area: tipamount;
+  a {
+    text-decoration: none;
     color: $StrongCyan;
+    cursor: pointer;
   }
-
-  .per-person1 {
-    grid-area: perperson1;
-    align-self: start;
-    margin: 0;
-    padding: 0;
-    color: $GrayishCyan;
-  }
-
-  grid-template-areas:
-    "tipamounttext tipamount"
-    "perperson1 tipamount";
-}
-
-.grid-bottom {
-  display: grid;
-
-  .total-amount-text {
-    grid-area: totalamounttext;
-    align-self: end;
-    margin: 0;
-    padding: 0;
-  }
-
-  .total-amount {
-    grid-area: totalamount;
-    color: $StrongCyan;
-  }
-
-  .per-person2 {
-    grid-area: perperson2;
-    align-self: start;
-    margin: 0;
-    padding: 0;
-    color: $GrayishCyan;
-  }
-
-  grid-template-areas:
-    "totalamounttext totalamount"
-    "perperson2 totalamount";
 }

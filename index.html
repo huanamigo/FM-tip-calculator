@@ -10,6 +10,11 @@
       href="./images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="/styles/styleMobile.css" />
+    <link
+      rel="stylesheet"
+      href="/styles/styleDesktop.css"
+      media="(min-width:1024px)"
+    />
     <script src="/scripts/index.js" defer></script>
     <title>Frontend Mentor | Tip calculator app</title>
   </head>
@@ -20,98 +25,104 @@
         TTER
       </h1>
       <div class="main">
-        <section>
-          <label for="bill-amount">Bill</label> <br />
-          <input
-            class="text-input"
-            type="number"
-            name="bill-amount"
-            id="bill-amount"
-          />
-        </section>
+        <div>
+          <section>
+            <label for="bill-amount">Bill</label> <br />
+            <input
+              class="text-input"
+              type="number"
+              name="bill-amount"
+              id="bill-amount"
+              placeholder="0"
+            />
+          </section>
 
-        <section class="tip-perc">
-          <label for="tip-perc">Select Tip %</label>
-          <br />
-          <input
-            class="hidden tip-perc-amount"
-            type="radio"
-            name="tip-perc"
-            id="one"
-            value=".05"
-          />
-          <label class="radio-label" for="one">5%</label>
+          <section class="tip-perc">
+            <label class="tip-perc-label" for="tip-perc">Select Tip %</label>
+            <br />
+            <input
+              class="hidden tip-perc-amount"
+              type="radio"
+              name="tip-perc"
+              id="one"
+              value=".05"
+            />
+            <label class="radio-label" for="one">5%</label>
 
-          <input
-            class="hidden tip-perc-amount"
-            type="radio"
-            name="tip-perc"
-            id="two"
-            value=".1"
-          />
-          <label class="radio-label" for="two">10%</label>
+            <input
+              class="hidden tip-perc-amount"
+              type="radio"
+              name="tip-perc"
+              id="two"
+              value=".1"
+            />
+            <label class="radio-label" for="two">10%</label>
 
-          <input
-            class="hidden tip-perc-amount"
-            type="radio"
-            name="tip-perc"
-            id="three"
-            value=".15"
-          />
-          <label class="radio-label" for="three">15%</label>
+            <input
+              class="hidden tip-perc-amount"
+              type="radio"
+              name="tip-perc"
+              id="three"
+              value=".15"
+            />
+            <label class="radio-label" for="three">15%</label>
 
-          <input
-            class="hidden tip-perc-amount"
-            type="radio"
-            name="tip-perc"
-            id="four"
-            value=".25"
-          />
-          <label class="radio-label" for="four">25%</label>
+            <input
+              class="hidden tip-perc-amount"
+              type="radio"
+              name="tip-perc"
+              id="four"
+              value=".25"
+            />
+            <label class="radio-label" for="four">25%</label>
 
-          <input
-            class="hidden tip-perc-amount"
-            type="radio"
-            name="tip-perc"
-            id="five"
-            value=".5"
-          />
-          <label class="radio-label" for="five">50%</label>
+            <input
+              class="hidden tip-perc-amount"
+              type="radio"
+              name="tip-perc"
+              id="five"
+              value=".5"
+            />
+            <label class="radio-label" for="five">50%</label>
 
-          <input
-            class="text-input tip-perc"
-            type="number"
-            name="tip-perc"
-            id="six"
-            placeholder="Custom"
-            value=""
-          />
-        </section>
+            <input
+              class="text-input tip-perc-amount"
+              type="number"
+              min="0"
+              name="tip-perc"
+              id="six"
+              placeholder="Custom"
+              value=""
+            />
+          </section>
 
-        <section class="ppl-num">
-          <label for="ppl-num">Number of People</label> <br />
-          <input
-            class="text-input"
-            type="number"
-            name="ppl-num"
-            id="ppl-num"
-            value="1"
-          />
-        </section>
-
-        <section class="result">
-          <div class="grid-top">
-            <p class="grid-left tip-amount-text">Tip Amount</p>
-            <p class="grid-left per-person1">/ person</p>
-            <p class="grid-right tip-amount">$0.00</p>
-          </div>
-          <div class="grid-bottom">
-            <p class="grid-left total-amount-text">Total</p>
-            <p class="grid-left per-person2">/ person</p>
-            <p class="grid-right total-amount">$0.00</p>
-          </div>
-          <button class="radio-label reset-button">RESET</button>
-        </section>
+          <section class="ppl-num">
+            <label for="ppl-num">Number of People</label> <br />
+            <input
+              class="text-input"
+              type="number"
+              min="1"
+              name="ppl-num"
+              id="ppl-num"
+              value="1"
+            />
+          </section>
+        </div>
+        <div>
+          <section class="result">
+            <div class="grid-top">
+              <p class="grid-left tip-amount-text">Tip Amount</p>
+              <p class="grid-left per-person1">/ person</p>
+              <p class="grid-right tip-amount">$0.00</p>
+            </div>
+            <div class="grid-bottom">
+              <p class="grid-left total-amount-text">Total</p>
+              <p class="grid-left per-person2">/ person</p>
+              <p class="grid-right total-amount">$0.00</p>
+            </div>
+            <button class="radio-label reset-button">RESET</button>
+          </section>
+        </div>
       </div>
     </div>
 
